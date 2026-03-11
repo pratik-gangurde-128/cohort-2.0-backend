@@ -20,4 +20,17 @@ app.post("/notes",async (req,res)=>{
     })
 })
 
+// Get
+
+app.get("/notes",async (req,res)=>{
+    const notes = await noteModel.find() // Find Method Humesha Array mein Data Return karegi
+
+    res.status(200).json({
+        message:"Notes Fetched 100%",
+        notes
+    })
+})
+
+
+
 module.exports = app 
