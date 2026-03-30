@@ -2,14 +2,17 @@
 
 const express = require("express")
 const noteModel = require("./models/note.model")
+const cors = require("cors")
+const path = require("path")
+
 
 const app = express()
+app.use(cors()) //Yeh Frontend(React) se allow karta hai url(GET,POST,DELETE,PATCH) link access karna
 app.use(express.json()) // Middleware jo req.body ko read karta hai
-
-//Post api/notes
-// Create new note and save data in mongoDB
-// req.body = {title , description} -----> req.body se title and description destructure kar lenge
-
+                        //Post api/notes
+                        // Create new note and save data in mongoDB
+                        // req.body = {title , description} -----> req.body se title and description destructure kar lenge
+app.use(express.static("./public"))
 app.post("/api/notes", async (req,res)=>{
     const {title , description} = req.body
     const note = await noteModel.create({
@@ -55,6 +58,12 @@ app.patch("/api/notes/:id",async (req,res)=>{
     res.status(200).json({
         message:"Description Updated Successfully"
     })
+})
+
+console.log(__dirname)
+
+app.use('*name',(req,res)=>{
+    res.sendFile(path.join(__dirname,"..","/public/index.html")) // (..) double dot isiliye use kiya hai ki humein src folder ke bahar jana hai then public folder mein jane ke baad (index.html) file ka absolute path milega 
 })
 
 module.exports = app
