@@ -30,7 +30,7 @@ function fetchNotes(){
       })
 }
 
-//UseEffect humne isiliye use kiya hai kyuki koi specifi task bus 1 baar render karna hai 
+// UseEffect humne isiliye use kiya hai kyuki koi specific task bus 1 baar render karna hai 
 // For eg. Humein DATA bus ek baar hi render karna hai isiliye woh code useEffect ke andar likha hai.
 
 useEffect(() => {
@@ -44,11 +44,11 @@ function handleSubmit(e){
   axios.post("http://localhost:3000/api/notes",{
     title:title.value,
     description:description.value
-  })                                             // (res.body) mein data bhejna hota hai isiliye object format mein bhejte hai url ke badmein
+  })                                             // (res.body) mein data bhejna hota hai isiliye object format mein bhejte hai (post)url ke badmein
   .then(res=>{
     console.log(res.data)
-    fetchNotes() // Isiliye call kiya hai ki jab koi new note bane to woh foren render hojaye and screen par dikhe else hume har new note create karne par page bar bar reload karna padega
-  })
+    fetchNotes() // Isiliye call kiya hai ki jab koi new note bane to woh foren render hojaye and screen par dikhe 
+  })             // else hume har new note create karne par page bar bar reload karna padega
 }
 
 function handleDeleteNote(noteId){
@@ -73,8 +73,8 @@ function handleDeleteNote(noteId){
       return <div className="note">
         <h1>{note.title}</h1>
         <p>{note.description}</p>
-        <button onClick={()=>{handleDeleteNote(note._id)}}>Delete</button>
-      </div>})}
+        <button onClick={()=>{handleDeleteNote(note._id)}}>Delete</button>   
+      </div>})} 
     </div>
     </>
   )
