@@ -1,0 +1,12 @@
+const express = require("express")
+const cookieParser = require("cookie-parser") // Token Cookies mein save karne keliye use hoga
+const authRouter = require("./routes/auth.routes") // Routes require kiye hai
+
+const app = express()
+app.use(express.json())// Middleware used for reading data from (req.body)
+app.use(cookieParser())//Middleware ki tarah use kiya
+
+app.use("/api/auth",authRouter) // prefix use hoga jo jo api create kiye hai authRoutes ki help se
+
+
+module.exports = app
