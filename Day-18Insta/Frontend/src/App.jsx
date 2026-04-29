@@ -2,16 +2,13 @@ import { RouterProvider } from "react-router"
 import { router } from "./app.routes"
 import { AuthProvider } from "./features/auth/auth.context"
 import "./features/shared/global.scss"
-import { PostContextProvider } from "./features/posts/post.context"
-
 
 function App() {
+  // const [count, setCount] = useState(0)
 
   return (
     <AuthProvider>
-      <PostContextProvider>
-        <RouterProvider router={router} />
-      </PostContextProvider>
+        <RouterProvider router={router}/>
     </AuthProvider>
   )
 }

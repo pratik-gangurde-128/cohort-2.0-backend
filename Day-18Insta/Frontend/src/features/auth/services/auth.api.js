@@ -1,9 +1,3 @@
-// API LAYER   👈👈 
-
-// Auth se related hi jo bhi Authentication wala kaam hoga woh yeha hi hoga
-// Backend se communicate karne   "Authentication"    Related kaam hoga woh yehi hoga
-
-
 import axios from "axios";
 
 

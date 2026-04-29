@@ -14,7 +14,6 @@ authRouter.post("/register",authController.registerController)
 //POST ("/api/auth/login")
 authRouter.post("/login",authController.loginController)
 
-
 /**
  * @route GET /api/auth/get-me
  * @desc Get the currently logged in user's information
