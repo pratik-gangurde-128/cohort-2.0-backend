@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Post = ({ user, post}) => {
+const Post = ({ user, post,loading, handleLike, handleUnLike }) => {
 
     return (
         <div className="post">
